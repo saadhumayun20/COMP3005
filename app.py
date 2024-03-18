@@ -26,6 +26,29 @@ def db_connect(func):
     return with_connection_
 
 @db_connect
+def resetAndCreateTable(conn):
+    cur = conn.cursor()
+    # Drop the existing table
+    cur.execute("DROP TABLE IF EXISTS students;")
+    # Create the table anew
+    cur.execute("""
+        CREATE TABLE students (
+            student_id SERIAL PRIMARY KEY,
+            first_name TEXT NOT NULL,
+            last_name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            enrollment_date DATE
+        );
+    """)
+    # Insert initial data
+    cur.execute("""
+        INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
+        ('John', 'Doe', 'john.doe@example.com', '2023-09-01'),
+        ('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),
+        ('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');
+    """)
+
+@db_connect
 def getAllStudents(conn):
     cur = conn.cursor()
     cur.execute("SELECT * FROM students")
@@ -50,6 +73,7 @@ def deleteStudent(conn, student_id):
     cur.execute("DELETE FROM students WHERE student_id = %s", (student_id,))
 
 if __name__ == "__main__":
+    resetAndCreateTable()
     # Fetch and display all students initially.
     print("Fetching initial list of students...")
     getAllStudents()
