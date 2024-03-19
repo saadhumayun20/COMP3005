@@ -91,7 +91,7 @@ if __name__ == "__main__":
     # After uncommenting you may modify the function call to your liking
 
     #print("\nAdding a new student...")
-    #addStudent('Lebron', 'James', 'lebron@example.com', '2024-01-01')      # Adds a new student to the table
+    #addStudent('Lebron', 'James', 'lebron@example.com', '2024-01-01')          # Adds a new student to the table
     #print("\nFetching updated list of students after adding a new one...")
     #getAllStudents()                                                           # Gets all students to show new student
     
