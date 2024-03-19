@@ -101,6 +101,6 @@ if __name__ == "__main__":
     #getAllStudents()                                                           # Gets all students to show updated email
     
     #print("\nDeleting Lebron from students...")
-    #deleteStudent(4)                                                          # Deletes exisiting student using their student_id
+    #deleteStudent(4)                                                           # Deletes exisiting student using their student_id
     #print("\nFetching final list of students after deletion...")
     #getAllStudents()                                                           # Gets all students to show updated email
