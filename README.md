@@ -13,4 +13,6 @@ To run the python script (run in directory with the python file): python3 assign
 
 Run this query in pgadmin using the query tool to check the table: SELECT * FROM students
 
+**Ensure that the function calls at the bottom are uncommented or you won't see changes**
+
 Link to demo video: https://youtu.be/af6DhawTPZw
